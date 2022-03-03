@@ -269,12 +269,9 @@
       document.body.appendChild(script);
 	  
 	  function GetID(id){
-	    alert("传入的id:"+id);
-		var crlTest = 123;
-	  }
-	  
-	  /*****************************************************************************************/
-	   let sender = null;
+	    //alert("传入的id:"+id);
+		//var crlTest = 123;
+		 let sender = null;
         let url = '';
         let n = 1;
 
@@ -302,7 +299,25 @@
 
         var points = document.querySelectorAll('li');
         var parent = document.getElementById('points');
+		var year = 2015;
+		Array.prototype.slice.call(parent.children).forEach((el, i) => {
+                    el.className = el.className.replace(' li-active', '')
+                })
+                
+                point.className += ' li-active';
+				
+				console.log(point);
 
+                if (sender && url) {
+                    console.log('返回数据', url, {
+                        year: year,
+                    })
+
+                    sender.source.postMessage({
+                        year: year,
+                    }, url);
+                }
+		 /*******
         points.forEach(point => {
 
             point.addEventListener('click', function () {
@@ -324,6 +339,33 @@
                 }
             }, false)
         })
+		
+	  }
+	  ***/
+	  /***************************************************************************
+	  
+		points.forEach(point => {
+
+            point.addEventListener('click', function () {
+                var year = point.getAttribute('data-year')
+                Array.prototype.slice.call(parent.children).forEach((el, i) => {
+                    el.className = el.className.replace(' li-active', '')
+                })
+
+                point.className += ' li-active';
+
+                if (sender && url) {
+                    console.log('返回数据', url, {
+                        year: year,
+                    })
+
+                    sender.source.postMessage({
+                        year: year,
+                    }, url);
+                }
+            }, false)
+        })
+		********/
     </script>
 	
 	
