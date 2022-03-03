@@ -300,6 +300,8 @@
         var points = document.querySelectorAll('li');
         var parent = document.getElementById('points');
 		var year = 2015;
+		
+	/*	
 		Array.prototype.slice.call(parent.children).forEach((el, i) => {
                     el.className = el.className.replace(' li-active', '')
                 })
@@ -307,7 +309,7 @@
                 point.className += ' li-active';
 				
 				console.log(point);
-
+    ***/
                 if (sender && url) {
                     console.log('返回数据', url, {
                         year: year,
